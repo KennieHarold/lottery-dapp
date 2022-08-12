@@ -6,19 +6,17 @@ function LotteryEntrance() {
   const { isWeb3Enabled } = useMoralis();
   const [recentWinner, setRecentWinner] = React.useState('0');
 
-  console.log(process.env.REACT_APP_LOTTERY_CONTRACT_ADDRESS);
-
-  const { runContractFunction: enterRaffle } = useWeb3Contract({
+  const { runContractFunction: enterLottery } = useWeb3Contract({
     abi: Lottery.abi,
-    contractAddress: process.env.REACT_APP_LOTTERY_CONTRACT_ADDRESS,
-    functionName: 'enterRaffle',
+    contractAddress: process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS,
+    functionName: 'enterLottery',
     msgValue: '1000000000000000', // 0.001 ETH
     params: {}
   });
 
   const { runContractFunction: getRecentWinner } = useWeb3Contract({
     abi: Lottery.abi,
-    contractAddress: process.env.REACT_APP_LOTTERY_CONTRACT_ADDRESS,
+    contractAddress: process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS,
     functionName: 'recentWinner',
     params: {}
   });
@@ -36,15 +34,9 @@ function LotteryEntrance() {
 
   return (
     <div>
-      <button
-        className="mt-5 px-4 py-2 rounded bg-black text-white"
-        onClick={async () => {
-          await enterRaffle();
-        }}
-      >
+      <button className="mt-5 px-4 py-2 rounded bg-black text-white" onClick={async () => await enterLottery()}>
         Enter Lottery!
       </button>
-
       <div className="mt-4">The recent winner is: {recentWinner}</div>
     </div>
   );

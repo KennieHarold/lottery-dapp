@@ -100,7 +100,7 @@ contract Lottery is VRFConsumerBaseV2 {
         players = new address payable[](0);
         lotteryState = LotteryState.Open;
         lastTimestamp = block.timestamp;
-        (bool success, ) = recentWinner.call{value: address(this).balance}("");
+        (bool success, ) = _recentWinner.call{value: address(this).balance}("");
         
         if (!success) {
             revert TransferFailed();
