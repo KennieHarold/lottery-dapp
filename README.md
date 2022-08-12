@@ -4,7 +4,7 @@ This project demonstrates a basic a lottery dapp using Chainlink's keepers which
 based on the logic provided on the contract without the owner's intervention. And Chainlink's VRF to get the random value.
 
 Great thanks also to Chainlink for providing an awesome tutorial video. You can check the link below.
-[https://www.youtube.com/watch?v=8bMrko6iD9Q&t=7770s](Build a Raffle App With Solidity and NextJS: Code Along)
+[Build a Raffle App With Solidity and NextJS: Code Along](https://www.youtube.com/watch?v=8bMrko6iD9Q)
 
 Make sure you fill in these environment variables
 ```shell
