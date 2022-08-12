@@ -6,7 +6,7 @@ async function main() {
   const vrfCoordinator = process.env.BSCTESTNET_VRF_COORDINATOR;
   const gasLane = process.env.BSCTESTNET_GASLANE;
   const subscriptionId = process.env.BSCTESTNET_SUBSCRIPTION_ID;
-  const callbackGaslimit = '500000';
+  const callbackGaslimit = '25000';
 
   await hardhat.run('verify:verify', {
     address: process.env.BSCTESTNET_LOTTERY_ADDRESS,
